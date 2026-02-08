@@ -52,54 +52,39 @@
 //   return pr;
 // }
 
+
+// ordering food:
+
+// function orderFood(isRestaurantOpen) {
+//   return new Promise(function (resolve, reject) {
+//     setTimeout(() => {
+//       if (isRestaurantOpen) {
+//         resolve("food delivered!");
+//       } else {
+//         reject("Restaurant is closed!");
+//       }
+//     }, 2000);
+//   });
+// }
+
+// orderFood(false)
+// .then((msg) => {
+//   console.log(msg);
+// })
+// .catch((err) => {
+//   console.log(err);
+// });
+
 //======================= Promise chaining=======================
-const cart = ["shirt", "trousers", "shoes", "shades"];
 
-createOrder(cart)
-  .then(function (orderId) {
-    console.log(orderId);
-    return orderId;
-  })
-  .then(function (orderId) {
-    return proceedToPayment(orderId);
-  }).then((paymentInfo)=> {
-        console.log(paymentInfo)
-    })
-  .catch(function (err) {
-    console.log(err.message);
-  }).then(function(){
-    console.log("I will be definitely called !!")
-  });
+let promise = new Promise((resolve, reject) => {
+  resolve(2);
+});
 
-// Creation / Backend side /Promises are produced
-function createOrder(cart) {
-  const pr = new Promise(function (resolve, reject) {
-    //createOrder
-    //validateCart
-    //return orderId
-
-    //Fail-first approach
-    if (!validateCart(cart)) {
-      const err = new Error("Cart is invalid");
-      reject(err);
-    }
-
-    // logic for createOrder
-
-    const orderId = "11011";
-    if (orderId) {
-      setTimeout(() => resolve(orderId), 4000);
-    }
-  });
-  return pr;
-}
-
-function proceedToPayment(orderId) {
-  return new Promise(function (resolve, reject) {
-    resolve("Payment Successful");
-  });
-}
-
-function validateCart(cart) {
-  return false;
-}
+promise.then((num) => {
+  return num * 2;
+}).then((num) => {
+  return num * 2;
+}).then((final) => {
+  console.log(final);
+});
