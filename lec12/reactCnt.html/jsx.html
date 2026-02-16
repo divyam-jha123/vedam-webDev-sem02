@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      //transpiler
+      //select that node
+      const rootEle = document.querySelector('#root');
+
+      let count = 0;
+
+      function increment() {
+          count++;
+          console.log(count);
+          render()
+
+    
+      }
+      function decrement() {
+        count--;
+        console.log(count);
+        render()
+
+      }
+      function reset() {
+        count = 0;
+        console.log(count);
+        render()
+      }
+
+      function DisplayCount() {
+        return (
+          <div class="container">
+            <h2>Counter App</h2>
+            <div class="count">{count}</div>
+            <div id="counter">
+              <button id="decrement" onClick={decrement}>
+                -
+              </button>
+              <button id="reset" onClick={reset}>
+                reset
+              </button>
+              <button id="increment" onClick={increment}>
+                +
+              </button>
+            </div>
+          </div>
+        );
+      }
+
+      function render() {
+        ReactDOM.render(<DisplayCount />, rootEle);
+      }
+
+      render();
+    </script>
+  </body>
+</html>

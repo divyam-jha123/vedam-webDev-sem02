@@ -1,0 +1,38 @@
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            justify-content: center;
+            text-align: center;
+            background-color: aqua;
+            padding: 20px;
+            height: 16rem;
+            border-radius: 10px;
+        }
+        .count{
+            font-size: 3rem;
+        }
+        .counter{
+            padding: 3rem;
+        }
+        #reset{
+            padding: 1px 0.5rem;
+        }
+        #decrement{
+            padding: 1px 0.5rem;
+        }
+        #increment{
+            padding: 1px 0.5rem ;
+        }
